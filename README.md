@@ -1,16 +1,66 @@
-# Ex-10-IMPLEMENTATION-OF-SIMPLE-CODE-OPTIMIZATION-TECHNIQUES
-IMPLEMENTATION OF SIMPLE CODE OPTIMIZATION TECHNIQUES 
-# Date:
-# Aim:
-To write a C program to implement simple code optimization techniques such as Common subexpression elimination and Dead Code elimination.
-# ALGORITHM :
+# Ex-9-IMPLEMENTATION-OF-THE-BACK-END-OF-THE-COMPILER-
+IMPLEMENTATION OF THE BACK END OF THE COMPILER 
+# Date : 22-03-2024
+# Aim :
+To write a program to implement the back end of the compiler.
+# ALGORITHM
 1. Start the program.
-2. The ‘L’values and their corresponding ‘R’ values are given as input.
-3. After common subexpression elimination, the subexpressions that are common are identified and are removed.
-4. After Dead code elimination, the subexpression that is of no use can be identified and is eliminated.
-5. Stop the program.
-# PROGRAM
-# OUTPUT
-# RESULT
-The simple code optimization techniques such as common subexpression elimination and dead code elimination are implemented successfully and the output is verified.
+2. Get the three variables from statements and stored in the text file k.txt.
+3. Compile the program and give the path of the source file.
+4. Execute the program.
+5. Target code for the given statement is produced.
+6. Stop the program.
+# PROGRAM:
+```
+Developed By: YUVARAJ B
+Register No:212222230182
+```
+Program: program.c file
+```
+#include <stdio.h>
+#include <ctype.h>
+#include <stdlib.h>
 
+int main() {
+    int i = 2, j = 0, k = 2, k1 = 0;
+    char ip[10], kk[10];
+    FILE *fp;
+
+    printf("Enter the filename of the intermediate code: ");
+    scanf("%s", kk);
+
+    fp = fopen(kk, "r");
+    if (fp == NULL) {
+        printf("\nError in opening the file\n");
+        return 1;
+    }
+
+    printf("\nStatement\tTarget Code\n\n");
+    while (fscanf(fp, "%s", ip) != EOF) {
+        printf("%s\tMOV %c,R%d SUB ", ip, ip[i + k], j);
+
+        if (ip[i + 1] == '+')
+            printf("ADD ");
+        else
+            printf("SUB ");
+
+        if (islower(ip[i]))
+            printf("%c,R%d\n", ip[i + k1], j);
+        else
+            printf("%c,%c\n", ip[i], ip[i + 2]);
+
+        j++;
+        k1 = 2;
+        k = 0;
+    }
+
+    fclose(fp);
+
+    return 0;
+}
+```
+# OUTPUT
+![image](https://github.com/NAGINENIROHITH/Ex-9-IMPLEMENTATION-OF-THE-BACK-END-OF-THE-COMPILER-/assets/118344049/51863169-7796-43c7-b797-496553a2f5a7)
+
+# Result
+The back end of the compiler is implemented successfully, and the output is verified.
